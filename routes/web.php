@@ -12,8 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Tugas.gambar');
 });
+
+Route::get('/artikel','ArtikelController@read');
+Route::get('/artikel/create','ArtikelController@create')->name('create');
+Route::post('/artikel','ArtikelController@store')->name('store');
+Route::get('/artikel/{id}','ArtikelController@show');
+Route::get('/artikel/{id}/edit','ArtikelController@edit');
+Route::put('/artikel/{id}','ArtikelController@update');
+Route::delete('/artikel/{id}','ArtikelController@destory');
 
 Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
 Route::post('/items', 'ItemController@store'); // menyimpan data
